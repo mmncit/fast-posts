@@ -28,12 +28,17 @@ pip freeze # to check the installed packages
 5. Create .env file containing credentials:
 
 ```
-
+# for database connection
 export DATABASE=<database name>
 export DB_USER=<database username>
 export DB_HOST=<hostname, e.g. localhost>
 export DB_PASSWORD=<database password>
 export DB_URL=<database url>
+
+# for jwt
+export SECRET_KEY=<secret pass>
+export ALGORITHM=<hashing algorithm>
+export ACCESS_TOKEN_EXPIRE_MINUTES=<time to expire access token>
 
 ```
 
