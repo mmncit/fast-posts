@@ -13,6 +13,7 @@ class Post(PostBase):
     id: int
     created_at: datetime
     updated_at: datetime
+    user_id: int
 
     class Config:
         orm_mode = True

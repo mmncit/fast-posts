@@ -23,8 +23,7 @@ def create_posts(post: schemas.PostBase,
     # new_post = models.Posts(title=post.title,
     #                         content=post.content,
     #                         published=post.published)
-    print(current_user)
-    new_post = models.Posts(**post.dict())
+    new_post = models.Posts(user_id=current_user.id, **post.dict())
     db.add(new_post)
     db.commit()
     db.refresh(new_post)
@@ -52,6 +51,12 @@ def delete_post(id: int,
     if post_to_be_deleted == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"post with id: {id} does not exist")
+
+    if current_user.id != post_to_be_deleted.user_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=f"not authorized to perform requested action")
+
     db.delete(post_to_be_deleted)
     db.commit()
     return Response(status_code=status.HTTP_204_NO_CONTENT)
@@ -67,6 +72,12 @@ def update_post(id: int,
     if post_to_be_updated == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"post with id: {id} does not exist")
+
+    if current_user.id != post_to_be_updated.user_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=f"not authorized to perform requested action")
+
     post_to_be_updated.content = post.content
     post_to_be_updated.title = post.title
     post_to_be_updated.published = post.published
