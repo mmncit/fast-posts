@@ -2,30 +2,35 @@
 
 Minimal Post Management System using FastAPI, SQLAlchemy, PostgresDB
 
-## Setup:
+## Local Setup:
 
-1. Create a virtual environment
+1.0. Create a virtual environment (optional)
 
 ```
 python3 -m venv venv
 ```
 
-2. Update python interpreter to venv
+- Update python interpreter to venv
 
-3. Activate venv for command line
+- Activate venv for command line
 
 ```
 source venv/bin/activate
 ```
 
-4. Install python packages
+1.1. Go inside api directory
 
 ```
-pip install -r requirements_dev.txt # install the packages
-pip freeze # to check the installed packages
+cd api
 ```
 
-5. Create .env file containing credentials:
+2. Install python packages
+
+```
+make setup
+```
+
+3. Create .env file containing credentials:
 
 ```
 # for database connection
@@ -42,7 +47,7 @@ export ACCESS_TOKEN_EXPIRE_MINUTES=<time to expire access token>
 
 ```
 
-6. Apply environment variables
+Apply environment variables
 
 ```
 
@@ -50,13 +55,18 @@ source .env
 
 ```
 
-Finally,
+4. Finally, run command using `make`
+
+If `make` is not installed. Then
+
+```
+brew install make
+```
 
 Run the server implemented with raw SQL with:
 
 ```
-
-uvicorn api.sql.main:app --reload
+make run-sql
 
 ```
 
@@ -64,6 +74,6 @@ Run the server implemented with Object Relational Mapper (ORM) SQLAlchemy with:
 
 ```
 
-uvicorn api.orm.main:app --reload
+make run-orm
 
 ```
