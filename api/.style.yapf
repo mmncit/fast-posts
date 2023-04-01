@@ -1,0 +1,32 @@
+[style]
+based_on_style = pep8
+dedent_closing_brackets = true
+split_complex_comprehension = true
+split_before_logical_operator = true
+split_before_expression_after_opening_paren = true
+split_before_first_argument = true
+split_before_named_assigns = true
+each_dict_entry_on_separate_line = true
+blank_line_before_class_docstring: true
+blank_line_before_module_docstring: true
+blank_line_before_nested_class_or_def: true
+indent_width: 4
+use_tabs: false
+blank_lines_around_top_level_definition: 2
+blank_lines_between_imports: 1
+split_before_bitwise_operator: true
+split_before_arithmetic_operator: false
+join_multiple_lines: true
+join_multiple_lines_threshold: 2
+join_contiguous_lines: true
+allow_multiline_lambdas: false
+dedent_closing_brackets_for_literals: false
+disable_ending_comma_heuristic: false
+continuation_align_style = fixed
+continuation_indent_width = 4
+column_limit: 79
+allow_multiline_dictionary_keys = false
+allow_split_before_dict_value = false
+split_all_comma_separated_values = false
+split_all_top_level_comma_separated_values = true
+coalesce_brackets = true
