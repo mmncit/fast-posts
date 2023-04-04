@@ -27,7 +27,7 @@ cd api
 2. Install python packages
 
 ```
-make setup
+make install
 ```
 
 3. Create .env file containing credentials:

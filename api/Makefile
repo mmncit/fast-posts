@@ -4,7 +4,7 @@ PORT ?= 8081
 dev-requirements:
 	pip install -r requirements_dev.txt
 
-setup: dev-requirements
+install: dev-requirements
 	pre-commit install
 
 run-sql:
