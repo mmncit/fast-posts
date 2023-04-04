@@ -25,8 +25,3 @@ repos:
       hooks:
           - id: pycln
             args: [--config=pycln.yaml]
-    - repo: https://github.com/miki725/importanize/
-      rev: 0.8.0-alpha2
-      hooks:
-          - id: importanize
-            args: [--verbose]
