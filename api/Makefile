@@ -1,5 +1,5 @@
 API=fast-post-api
-IS_PORT ?= 8081
+PORT ?= 8081
 
 dev-requirements:
 	pip install -r requirements_dev.txt
