@@ -36,14 +36,7 @@ def upgrade() -> None:
                   sa.TIMESTAMP,
                   nullable=False,
                   server_default=sa.func.now()),
-        sa.Column("user_id",
-                  sa.Integer,
-                  sa.ForeignKey("users.id", ondelete="CASCADE"),
-                  nullable=False),
     )
-
-    # Create the indexes
-    op.create_index("idx_posts_user_id", "posts", ["user_id"])
 
 
 def downgrade() -> None:
